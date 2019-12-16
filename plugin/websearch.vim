@@ -107,10 +107,11 @@ function! GetVisualSelection() "{{{2
 endfunction
 
 function! DoWebSearch(string) "{{{2
-  let l:duckduck = "https://duckduckgo.com/?q="
+  let l:stackoverflow = "https://stackoverflow.com/search?q="
   let l:google = "https://www.google.com/search?q="
-  let l:lynx = "lynx"
-  let l:chromium = "chromium-browser"
+  let l:github = "https://github.com/search?q=" 
+  let l:w3m = "w3m"
+  let l:macopen= "open"
   " 1. split the search string in seperate words
   " 2. join the words seperated by +
   " 3. replace all " with an empty string
@@ -119,32 +120,33 @@ function! DoWebSearch(string) "{{{2
     if g:web_search_engine == "google"
       let l:query = l:google . l:term
     endif
-    if g:web_search_engine == "duckduck"
-      let l:query = l:duckduck . l:term
+    if g:web_search_engine == "stackoverflow"
+      let l:query = l:stackoverflow . l:term
     endif
   endif
   if exists("g:web_search_query")
     let l:query = g:web_search_query . l:term
   endif
   if !exists("l:query")
-    " default search engine is duckduckgo
-    let l:query = l:duckduck . l:term
+    " default search engine is google
+    let l:query = l:google. l:term
   endif
   if exists("g:web_search_browser")
-    if g:web_search_browser == "lynx"
-      let l:browser_cmd = l:lynx
+    if g:web_search_browser == "w3m"
+      let l:browser_cmd = l:w3m
     endif
-    if g:web_search_browser == "chromium"
-      let l:browser_cmd = l:chromium
+    if g:web_search_browser == "macopen"
+      let l:browser_cmd = l:macopen
     endif
   endif
   if exists("g:web_search_command")
     let l:browser_cmd = g:web_search_command
   endif
   if !exists("l:browser_cmd")
-    " default browser is lynx
-    let l:browser_cmd = l:lynx
+    " default browser is w3m
+    let l:browser_cmd = l:w3m
   endif
-  execute "!" l:browser_cmd . " \"" . l:query . "\" "
+  :silent execute "!" l:browser_cmd . " \"" . l:query . "\" "
+  redraw!
 endfunction
 

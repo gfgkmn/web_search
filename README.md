@@ -11,9 +11,9 @@ variables:
 
   variable name        | possible values      | info
   ---------------------|----------------------|-------------------------------
-  g:web_search_engine  | "google", "duckduck" | choose your search engine. default: "duckduck"
+  g:web_search_engine  | "google", "github", stackoverflow   | choose your search engine. default: "google"
   g:web_search_query   | any string           | if set g:web_search_engine has no effect. your search term will be added to this. no default.
-  g:web_search_browser | "lynx", "chromium"   | choose your browser. default: "lynx"
+  g:web_search_browser | "macopen", "w3m"   | choose your browser. default: "w3m"
   g:web_search_command | any string           | if set g:web_search_browser has no effect. your favorite browser. no default.
   g:web_search_use_default_mapping | "yes", any | if set to "yes" the default mappings get set. default: unset
 
@@ -64,6 +64,12 @@ instead of typing `:WebSearchCursor` and `:WebSearchVisual` i would recommend to
 Bugs? Features?
 ===============
 feel free to open an issue or send a pull request.
+
+Acknowledgement
+===============
+linluk/vim-websearch
+[linluk/vim-websearch](https://github.com/linluk/vim-websearch)
+
 
 License
 =======
