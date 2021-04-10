@@ -17,7 +17,7 @@ variables:
   g:web_search_command | any string           | if set g:web_search_browser has no effect. your favorite browser. no default.
   g:web_search_use_default_mapping | "yes", any | if set to "yes" the default mappings get set. default: unset
 
-the default is to search in duckduckgo with lynx.
+the default is to search in google with w3m.
 to use f.e. firefox with yahoo put this in your .vimrc:
 ```
   let g:web_search_command = "firefox"
